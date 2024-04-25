@@ -60,7 +60,17 @@
         function applyNumberedList() {
             let range = quill.getSelection();
             if (range) {
-                quill.format('list', 'ordered'); // Applies numbered list formatting
+                let format = quill.getFormat(range);
+                if (format.list === 'ordered') {
+                    // Currently ordered, switch to unordered
+                    quill.format('list', 'bullet');
+                } else if (format.list === 'bullet') {
+                    // Currently unordered, remove list formatting
+                    quill.format('list', false);
+                } else {
+                    // No list formatting, switch to ordered
+                    quill.format('list', 'ordered');
+                }
             }
         }
 
