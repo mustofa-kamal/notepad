@@ -91,3 +91,19 @@
                 quill.format('italic', !format.italic); // Toggle bold formatting
             }
         }
+
+        function changeColor(colr) {        
+            let range = quill.getSelection();
+            if (range) {
+                let format = quill.getFormat(range);
+                if (format.color === colr) {
+                    quill.format('color', false);
+                }
+                else {
+                    quill.format('color', colr);
+                }    
+            }
+        }
+        
+
+        

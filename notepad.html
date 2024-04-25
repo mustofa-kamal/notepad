@@ -30,8 +30,30 @@
             cursor: pointer;
         }
 
+        #redButton {
+            background-color: #ff0000; /* navy blue background */
+        }
+        #redButton:hover {
+            background-color: #cc0000; /* Darker navy blue when hovered */
+        }
+
+        #blueButton {
+            background-color: #007fff; /* navy blue background */
+        }
+        #blueButton:hover {
+            background-color: #0065cc; /* Darker navy blue when hovered */
+        }
+
+        #magentaButton {
+            background-color: #ff00ff; /* navy blue background */
+        }
+        #magentaButton:hover {
+            background-color: #cc00cb; /* Darker navy blue when hovered */
+        }
+      
+
         #menu input[type="color"] {
-            height: 38px;
+            height: 34px;
             border: none;
             padding: 0;
             -webkit-appearance: none;
@@ -106,8 +128,11 @@
         <button onclick="italicText()">Italic</button>
         <button onclick="increaseFontSize()">+</button>
         <button onclick="decreaseFontSize()">-</button>
-        <button onclick="removeFormat()">Remove Format</button>
-        <button onclick="clearEditor()">Clear</button> 
+        <button onclick="removeFormat()">Clear Format</button>
+        <button onclick="clearEditor()">Clear</button>
+        <button id="redButton" onclick="changeColor('#ff0000')">Red</button> 
+        <button id="blueButton" onclick="changeColor('#007fff')">Blue</button> 
+        <button id="magentaButton" onclick="changeColor('#ff00ff')">Magenta</button> 
         <input type="color" id="colorPicker" onchange="changeTextColor(this.value)">
     </div>
     <div id="editor"></div>
