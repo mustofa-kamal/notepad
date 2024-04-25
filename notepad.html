@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Page Notepad-like Quill Editor</title>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #menu {
+            padding: 10px;
+            background: #f8f9fa;
+            text-align: center;
+            border: 1px solid #CCC;
+        }
+
+        #menu button, #menu input[type="color"] {
+            padding: 6px 12px;
+            margin: 0 2px;
+            font-size: 16px;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        #menu input[type="color"] {
+            height: 38px;
+            border: none;
+            padding: 0;
+            -webkit-appearance: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        #menu input[type="color"]::-webkit-color-swatch-wrapper {
+            padding: 0;
+        }
+
+        #menu input[type="color"]::-webkit-color-swatch {
+            border: none;
+        }
+
+        .ql-editor {
+            padding: 5px 22px;
+        }
+
+        .ql-editor p, .ql-editor li  {
+            line-height: 1.7;
+        }
+      
+        #editor {
+            flex-grow: 1;
+            background-color: #fffdd0;
+            background-image: 
+            linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
+            linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px);
+            background-size: 22px 22px;
+            overflow-y: auto;
+        }
+
+        #toolbar-container {
+            display: flex; /* Ensures items are laid out in a row */
+            flex-wrap: nowrap; /* Prevents wrapping of items */
+            justify-content: flex-start; /* Aligns items to the start of the container */
+            align-items: center; /* Centers items vertically */
+            padding: 5px;
+
+            overflow-x: auto; /* Allows horizontal scrolling if items overflow */
+            padding: 10px;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        #toolbar-container .button {
+            padding: 8px 15px; /* Increased padding for more space around the text */
+            margin: 0 5px; /* Slightly larger margin for better separation */
+            font-size: 16px; /* Maintain font size, adjust if needed */
+            cursor: pointer;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            min-width: 100px; /* Ensures a minimum width for the button */
+            text-align: center; /* Ensures text is centered within the button */
+            white-space: nowrap;
+        }
+
+    </style>
+</head>
+<body>
+   
+
+    <div id="menu">
+        <button onclick="undo()">Undo</button>
+        <button onclick="redo()">Redo</button>
+        <button onclick="selectAllText()">Select All</button>
+        <button onclick="applyNumberedList()">List</button>
+        <button onclick="boldText()">Bold</button>
+        <button onclick="italicText()">Italic</button>
+        <button onclick="increaseFontSize()">+</button>
+        <button onclick="decreaseFontSize()">-</button>
+        <button onclick="removeFormat()">Remove Format</button>
+        <button onclick="clearEditor()">Clear</button> 
+        <input type="color" id="colorPicker" onchange="changeTextColor(this.value)">
+    </div>
+    <div id="editor"></div>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script>
+        var quill = new Quill('#editor', {
+            
+            modules: {
+               
+                history: {
+                    delay: 1000,
+                    maxStack: 100,
+                    userOnly: false
+                }
+            }
+        });
+
+        quill.root.dataset.placeholder = '  Start typing...';
+        quill.focus();
+        quill.setSelection(0, 0);
+
+        function undo() {
+            quill.history.undo();
+        }
+
+        function redo() {
+            quill.history.redo();
+        }
+
+        function changeTextColor(color) {
+            quill.format('color', color);
+        }
+
+        // Enhanced font size adjustment functions
+        const sizes = ['small', false, 'large', 'huge'];
+        function increaseFontSize() {
+            let currentSize = quill.getFormat().size || false;
+            let currentIndex = sizes.indexOf(currentSize);
+            let nextIndex = (currentIndex + 1) % sizes.length;
+            quill.format('size', sizes[nextIndex]);
+        }
+
+        function decreaseFontSize() {
+            let currentSize = quill.getFormat().size || false;
+            let currentIndex = sizes.indexOf(currentSize);
+            let nextIndex = currentIndex - 1;
+            if (nextIndex < 0) nextIndex = sizes.length - 1;
+            quill.format('size', sizes[nextIndex]);
+        }
+        function clearEditor() {
+            quill.setText(''); // Clears all content from the editor
+        }
+        function selectAllText() {
+            quill.setSelection(0, quill.getLength()); // Selects all text in the editor
+        }
+
+        function removeFormat() {
+            let range = quill.getSelection();
+            if (range) {
+                quill.removeFormat(range.index, range.length); // Removes formatting from the selected range
+            }
+        }
+        function applyNumberedList() {
+            let range = quill.getSelection();
+            if (range) {
+                quill.format('list', 'ordered'); // Applies numbered list formatting
+            }
+        }
+
+        function boldText() {
+            let range = quill.getSelection();
+            if (range) {
+                // Check if the selection is already bold
+                let format = quill.getFormat(range);
+                quill.format('bold', !format.bold); // Toggle bold formatting
+            }
+        }
+
+        function italicText() {
+            let range = quill.getSelection();
+            if (range) {
+                // Check if the selection is already bold
+                let format = quill.getFormat(range);
+                quill.format('italic', !format.italic); // Toggle bold formatting
+            }
+        }
+
+    </script>
+</body>
+</html>
