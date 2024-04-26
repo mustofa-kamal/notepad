@@ -12,6 +12,7 @@
             }
         });
 
+        
         quill.root.dataset.placeholder = '  Start typing...';
         quill.focus();
         quill.setSelection(0, 0);
@@ -46,12 +47,13 @@
         }
         function clearEditor() {
             quill.setText(''); // Clears all content from the editor
+            quill.format('color', '#007fff');
         }
         function selectAllText() {
             quill.setSelection(0, quill.getLength()); // Selects all text in the editor
         }
 
-        function removeFormat() {
+        function clearFormat() {
             let range = quill.getSelection();
             if (range) {
                 quill.removeFormat(range.index, range.length); // Removes formatting from the selected range
@@ -104,6 +106,17 @@
                 }    
             }
         }
+
+        function underlineText() {
+            let range = quill.getSelection();
+            if (range) {
+                // Check if the selection is already underlined
+                let format = quill.getFormat(range);
+                quill.format('underline', !format.underline); // Toggle bold formatting
+            }
+        }
+
+        
         
 
         

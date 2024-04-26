@@ -110,7 +110,7 @@
             border-radius: 4px;
             min-width: 100px; /* Ensures a minimum width for the button */
             text-align: center; /* Ensures text is centered within the button */
-            white-space: nowrap;
+            white-space: nowrap;    
         }
 
     </style>
@@ -124,11 +124,12 @@
         <button onclick="redo()">Redo</button>
         <button onclick="selectAllText()">Select All</button>
         <button onclick="applyNumberedList()">List</button>
-        <button onclick="boldText()">Bold</button>
-        <button onclick="italicText()">Italic</button>
+        <button onclick="boldText()">B</button>
+        <button onclick="italicText()">I</button>
+        <button onclick="underlineText()">U</button>
         <button onclick="increaseFontSize()">+</button>
         <button onclick="decreaseFontSize()">-</button>
-        <button onclick="removeFormat()">Clear Format</button>
+        <button onclick="clearFormat()">Clear Format</button>
         <button onclick="clearEditor()">Clear</button>
         <button id="redButton" onclick="changeColor('#ff0000')">Red</button> 
         <button id="blueButton" onclick="changeColor('#007fff')">Blue</button> 
