@@ -2,8 +2,7 @@
     
         var quill = new Quill('#editor', {
             
-            modules: {
-               
+            modules: {            
                 history: {
                     delay: 1000,
                     maxStack: 100,
@@ -11,7 +10,6 @@
                 }
             }
         });
-
         
         quill.root.dataset.placeholder = '  Start typing...';
         quill.focus();
@@ -47,8 +45,8 @@
         }
         function clearEditor() {
             quill.setText(''); // Clears all content from the editor
-            quill.format('color', '#007fff');
         }
+
         function selectAllText() {
             quill.setSelection(0, quill.getLength()); // Selects all text in the editor
         }
