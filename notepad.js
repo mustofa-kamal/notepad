@@ -1,7 +1,6 @@
 
     
         var quill = new Quill('#editor', {
-            
             modules: {            
                 history: {
                     delay: 1000,
@@ -43,6 +42,7 @@
             if (nextIndex < 0) nextIndex = sizes.length - 1;
             quill.format('size', sizes[nextIndex]);
         }
+
         function clearEditor() {
             quill.setText(''); // Clears all content from the editor
         }
