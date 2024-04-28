@@ -114,6 +114,29 @@
             }
         }
 
+        // Function to print Quill content
+function printContent() {
+    var editorContent = quill.root.innerHTML; // Get the inner HTML of the editor
+  
+    // Create a new window or iframe for printing
+    var printWindow = window.open('', '_blank', 'width=800,height=600');
+    printWindow.document.write('<html><head><title>Print</title>');
+    printWindow.document.write('<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">');
+    printWindow.document.write('<link href="notepad.css" rel="stylesheet">');
+    printWindow.document.write('</head><body>');
+    printWindow.document.write(editorContent); // Write the editor content into the new window
+    printWindow.document.write('</body></html>');
+    printWindow.document.close();
+    printWindow.focus();
+  
+    // Use timeout to ensure all content loads before printing
+    setTimeout(function() {
+      printWindow.print(); // Trigger the print dialog
+      printWindow.close(); // Close the window after printing
+    }, 500);
+  }
+
+
         
         
 
