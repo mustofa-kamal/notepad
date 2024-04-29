@@ -10,7 +10,6 @@
             }
         });
         
-        quill.root.dataset.placeholder = '  Start typing...';
         quill.focus();
         quill.setSelection(0, 0);
 
@@ -135,6 +134,18 @@ function printContent() {
       printWindow.close(); // Close the window after printing
     }, 500);
   }
+
+    // Load the content from local storage initially
+    const storedContent = localStorage.getItem('quill-content');
+    if (storedContent) {
+        quill.setContents(JSON.parse(storedContent));
+    }
+
+    // Save the content to local storage on change
+    quill.on('text-change', function() {
+        const content = quill.getContents();
+        localStorage.setItem('quill-content', JSON.stringify(content));
+    });
 
 
         
