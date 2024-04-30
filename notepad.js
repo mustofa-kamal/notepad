@@ -144,6 +144,16 @@ function printContent() {
         localStorage.setItem('quill-content', JSON.stringify(content));
     });
 
+    document.getElementById('download-pdf').addEventListener('click', function() {
+        html2canvas(document.querySelector("#editor")).then(canvas => {
+          const imgData = canvas.toDataURL('image/png');
+          const pdf = new jspdf.jsPDF();
+          pdf.addImage(imgData, 'PNG', 0, 0);
+          pdf.save("download.pdf");
+        });
+      });
+      
+
 
         
         
