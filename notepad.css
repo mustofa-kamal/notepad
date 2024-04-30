@@ -20,26 +20,6 @@ body {
     cursor: pointer;
 }
 
-#redButton {
-    background-color: #ff0000; /* navy blue background */
-}
-#redButton:hover {
-    background-color: #cc0000; /* Darker navy blue when hovered */
-}
-
-#blueButton {
-    background-color: #007fff; /* navy blue background */
-}
-#blueButton:hover {
-    background-color: #0065cc; /* Darker navy blue when hovered */
-}
-
-#magentaButton {
-    background-color: #ff00ff; /* navy blue background */
-}
-#magentaButton:hover {
-    background-color: #cc00cb; /* Darker navy blue when hovered */
-}
 
 
 #menu input[type="color"] {
@@ -101,3 +81,173 @@ body {
     text-align: center; /* Ensures text is centered within the button */
     white-space: nowrap;    
 }
+
+.select-all-button {
+    background-image: url('images/select-all.png'); /* Update with the correct path */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 34px; /* Adjust size as needed */
+    height: 34px; /* Adjust size as needed */
+    cursor: pointer;
+}
+
+.undo-button {
+    background-image: url('images/undo.png'); /* Update with the correct path */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 34px; /* Adjust size as needed */
+    height: 34px; /* Adjust size as needed */
+    cursor: pointer;
+}
+
+.redo-button {
+    background-image: url('images/redo.png'); /* Update with the correct path */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 34px; /* Adjust size as needed */
+    height: 34px; /* Adjust size as needed */
+    cursor: pointer;
+}
+
+.clear-button {
+    background-image: url('images/clear.png'); /* Update with the correct path */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 34px; /* Adjust size as needed */
+    height: 34px; /* Adjust size as needed */
+    cursor: pointer;
+}
+
+.list-button {
+    background-image: url('images/list.png'); /* Update with the correct path */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 34px; /* Adjust size as needed */
+    height: 34px; /* Adjust size as needed */
+    cursor: pointer;
+}
+.sizeup-button {
+    background-image: url('images/size-up.png'); /* Update with the correct path */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 34px; /* Adjust size as needed */
+    height: 34px; /* Adjust size as needed */
+    cursor: pointer;
+}
+
+.clearformat-button {
+    background-image: url('images/clear-format.png'); /* Update with the correct path */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 34px; /* Adjust size as needed */
+    height: 34px; /* Adjust size as needed */
+    cursor: pointer;
+}
+
+.sizedown-button {
+    background-image: url('images/size-down.png'); /* Update with the correct path */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 34px; /* Adjust size as needed */
+    height: 34px; /* Adjust size as needed */
+    cursor: pointer;
+}
+
+.bold-button {
+    background-image: url('images/bold.png'); /* Update with the correct path */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 34px; /* Adjust size as needed */
+    height: 34px; /* Adjust size as needed */
+    cursor: pointer;
+}
+
+.italic-button {
+    background-image: url('images/italic.png'); /* Update with the correct path */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 34px; /* Adjust size as needed */
+    height: 34px; /* Adjust size as needed */
+    cursor: pointer;
+}
+
+.underline-button {
+    background-image: url('images/underline.png'); /* Update with the correct path */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 34px; /* Adjust size as needed */
+    height: 34px; /* Adjust size as needed */
+    cursor: pointer;
+}
+
+.red-button {
+    background-image: url('images/red.png'); /* Update with the correct path */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 34px; /* Adjust size as needed */
+    height: 34px; /* Adjust size as needed */
+    cursor: pointer;
+}
+
+.blue-button {
+    background-image: url('images/blue.png'); /* Update with the correct path */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 34px; /* Adjust size as needed */
+    height: 34px; /* Adjust size as needed */
+    cursor: pointer;
+}
+
+.magenta-button {
+    background-image: url('images/magenta.png'); /* Update with the correct path */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 34px; /* Adjust size as needed */
+    height: 34px; /* Adjust size as needed */
+    cursor: pointer;
+}
+
+.print-button {
+    background-image: url('images/printer.png'); /* Update with the correct path */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 34px; /* Adjust size as needed */
+    height: 34px; /* Adjust size as needed */
+    cursor: pointer;
+}
+
+
+
+
+
+

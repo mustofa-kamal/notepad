@@ -21,9 +21,6 @@
             quill.history.redo();
         }
 
-        function changeTextColor(color) {
-            quill.format('color', color);
-        }
 
         // Enhanced font size adjustment functions
         const sizes = ['small', false, 'large', 'huge'];

@@ -12,22 +12,21 @@
 </head>
 <body>
     <div id="menu">
-        <button onclick="undo()">Undo</button>
-        <button onclick="redo()">Redo</button>
-        <button onclick="selectAllText()">Select All</button>
-        <button onclick="applyNumberedList()">List</button>
-        <button onclick="boldText()">B</button>
-        <button onclick="italicText()">I</button>
-        <button onclick="underlineText()">U</button>
-        <button onclick="increaseFontSize()">+</button>
-        <button onclick="decreaseFontSize()">-</button>
-        <button onclick="clearFormat()">Clear Format</button>
-        <button onclick="clearEditor()">Clear</button>
-        <button id="redButton" onclick="changeColor('#ff0000')">Red</button> 
-        <button id="blueButton" onclick="changeColor('#007fff')">Blue</button> 
-        <button id="magentaButton" onclick="changeColor('#ff00ff')">Magenta</button> 
-        <input type="color" id="colorPicker" onchange="changeTextColor(this.value)">
-        <button onclick="printContent()">Print</button>
+        <button class="undo-button" title="Undo" onclick="undo()"></button>
+        <button class="redo-button" title="Redo" onclick="redo()" ></button>
+        <button class="select-all-button" title="Select All" onclick="selectAllText()" ></button>
+        <button class="list-button" title="List" onclick="applyNumberedList()"></button>
+        <button class="bold-button" title="Bold" onclick="boldText()"></button>
+        <button class="italic-button" title="Italic" onclick="italicText()"></button>
+        <button class="underline-button" title="Underline"  onclick="underlineText()"></button>
+        <button class="sizeup-button" title="Font Increase" onclick="increaseFontSize()"></button>
+        <button class="sizedown-button" title="Font Decrease" onclick="decreaseFontSize()">-</button>
+        <button class="clearformat-button" title="Clear Format" onclick="clearFormat()"></button>
+        <button class="clear-button" title="Remove Content" onclick="clearEditor()"></button>
+        <button class="red-button" title="Red" id="redButton" onclick="changeColor('#ff0000')"></button> 
+        <button class="blue-button" title="Blue" id="blueButton" onclick="changeColor('#007fff')"></button> 
+        <button class="magenta-button" title="Magenta" id="magentaButton" onclick="changeColor('#ff00ff')"></button> 
+        <button class="print-button" title="Print" onclick="printContent()"></button>
     </div>
     <div id="editor"></div>
     <!-- Include the Quill library -->
