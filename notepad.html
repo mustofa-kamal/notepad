@@ -15,6 +15,7 @@
 </head>
 <body>
     <div id="menu">
+        <button class="insertDateTime-button" title="Insert Date and Time" onclick="insertDateTime()"></button>
         <button class="undo-button" title="Undo" onclick="undo()"></button>
         <button class="redo-button" title="Redo" onclick="redo()" ></button>
         <button class="select-all-button" title="Select All" onclick="selectAllText()" ></button>
@@ -29,7 +30,7 @@
         <button class="red-button" title="Red" id="redButton" onclick="changeColor('#ff0000')"></button> 
         <button class="blue-button" title="Blue" id="blueButton" onclick="changeColor('#007fff')"></button> 
         <button class="magenta-button" title="Magenta" id="magentaButton" onclick="changeColor('#ff00ff')"></button> 
-        <button id="download-pdf" class="pdf-button" title="Download as PDF"></button>
+        <button id="download-pdf" class="pdf-button" title="Download as PDF" onclick="downloadAsPdf()"></button>
         <button class="print-button" title="Print" onclick="printContent()"></button>
     </div>
     <div id="editor"></div>
