@@ -69,219 +69,97 @@ body {
     text-align: center;
 }
 
-#toolbar-container .button {
-    padding: 8px 15px; /* Increased padding for more space around the text */
-    margin: 0 5px; /* Slightly larger margin for better separation */
-    font-size: 16px; /* Maintain font size, adjust if needed */
-    cursor: pointer;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    min-width: 100px; /* Ensures a minimum width for the button */
-    text-align: center; /* Ensures text is centered within the button */
-    white-space: nowrap;    
-}
-
-.select-all-button {
-    background-image: url('images/select-all.png'); /* Update with the correct path */
+/* Base class for all buttons */
+.button-base {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     border: none;
-    width: 34px; /* Adjust size as needed */
-    height: 34px; /* Adjust size as needed */
+    width: 34px;  /* Adjust size as needed */
+    height: 34px;  /* Adjust size as needed */
     cursor: pointer;
+    transition: opacity 0.2s ease;  /* Smooth transition for opacity change */
 }
 
-.undo-button {
-    background-image: url('images/undo.png'); /* Update with the correct path */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    width: 34px; /* Adjust size as needed */
-    height: 34px; /* Adjust size as needed */
-    cursor: pointer;
+/* Hover effect for all buttons */
+.button-base:hover {
+    opacity: 0.5;
 }
 
-.redo-button {
-    background-image: url('images/redo.png'); /* Update with the correct path */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    width: 34px; /* Adjust size as needed */
-    height: 34px; /* Adjust size as needed */
-    cursor: pointer;
+/* Specific classes for different background images */
+.button-tafsir {
+    background-image: url('images/tafsir.png');
 }
 
-.clear-button {
-    background-image: url('images/clear.png'); /* Update with the correct path */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    width: 34px; /* Adjust size as needed */
-    height: 34px; /* Adjust size as needed */
-    cursor: pointer;
+.button-selectall {
+    background-image: url('images/select-all.png');
 }
 
-.list-button {
-    background-image: url('images/list.png'); /* Update with the correct path */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    width: 34px; /* Adjust size as needed */
-    height: 34px; /* Adjust size as needed */
-    cursor: pointer;
-}
-.sizeup-button {
-    background-image: url('images/size-up.png'); /* Update with the correct path */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    width: 34px; /* Adjust size as needed */
-    height: 34px; /* Adjust size as needed */
-    cursor: pointer;
+.button-undo {
+    background-image: url('images/undo.png');
 }
 
-.clearformat-button {
-    background-image: url('images/clear-format.png'); /* Update with the correct path */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    width: 34px; /* Adjust size as needed */
-    height: 34px; /* Adjust size as needed */
-    cursor: pointer;
+.button-redo {
+    background-image: url('images/redo.png');
 }
 
-.sizedown-button {
-    background-image: url('images/size-down.png'); /* Update with the correct path */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    width: 34px; /* Adjust size as needed */
-    height: 34px; /* Adjust size as needed */
-    cursor: pointer;
+.button-clear {
+    background-image: url('images/clear.png');
 }
 
-.bold-button {
-    background-image: url('images/bold.png'); /* Update with the correct path */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    width: 34px; /* Adjust size as needed */
-    height: 34px; /* Adjust size as needed */
-    cursor: pointer;
-}
-
-.italic-button {
-    background-image: url('images/italic.png'); /* Update with the correct path */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    width: 34px; /* Adjust size as needed */
-    height: 34px; /* Adjust size as needed */
-    cursor: pointer;
-}
-
-.underline-button {
-    background-image: url('images/underline.png'); /* Update with the correct path */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    width: 34px; /* Adjust size as needed */
-    height: 34px; /* Adjust size as needed */
-    cursor: pointer;
-}
-
-.red-button {
-    background-image: url('images/red.png'); /* Update with the correct path */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    width: 34px; /* Adjust size as needed */
-    height: 34px; /* Adjust size as needed */
-    cursor: pointer;
-}
-
-.blue-button {
-    background-image: url('images/blue.png'); /* Update with the correct path */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    width: 34px; /* Adjust size as needed */
-    height: 34px; /* Adjust size as needed */
-    cursor: pointer;
-}
-
-.magenta-button {
-    background-image: url('images/magenta.png'); /* Update with the correct path */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    width: 34px; /* Adjust size as needed */
-    height: 34px; /* Adjust size as needed */
-    cursor: pointer;
-}
-
-.print-button {
-    background-image: url('images/printer.png'); /* Update with the correct path */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    width: 34px; /* Adjust size as needed */
-    height: 34px; /* Adjust size as needed */
-    cursor: pointer;
-}
-
-.pdf-button {
-    background-image: url('images/pdf.png'); /* Update with the correct path */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    width: 34px; /* Adjust size as needed */
-    height: 34px; /* Adjust size as needed */
-    cursor: pointer;
-}
-
-.insertDateTime-button {
-    background-image: url('images/dateTime.png'); /* Update with the correct path */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    width: 34px; /* Adjust size as needed */
-    height: 34px; /* Adjust size as needed */
-    cursor: pointer;
-}
-
-.tafsir-button {
-    background-image: url('images/tafsir.png'); /* Update with the correct path */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    width: 34px; /* Adjust size as needed */
-    height: 34px; /* Adjust size as needed */
-    cursor: pointer;
+.button-list {
+    background-image: url('images/list.png');
 }
 
 
+.button-sizeup {
+    background-image: url('images/size-up.png');
+}
 
+.button-sizedown {
+    background-image: url('images/size-down.png');
+}
 
+.button-clearformat {
+    background-image: url('images/clear-format.png');
+}
 
+.button-bold {
+    background-image: url('images/bold.png');
+}
 
+.button-underline {
+    background-image: url('images/underline.png');
+}
 
+.button-italic {
+    background-image: url('images/italic.png');
+}
+
+.button-red {
+    background-image: url('images/red.png');
+}
+
+.button-blue {
+    background-image: url('images/blue.png');
+}
+
+.button-magenta {
+    background-image: url('images/magenta.png');
+}
+
+.button-printer {
+    background-image: url('images/printer.png');
+}
+
+.button-pdf {
+    background-image: url('images/pdf.png');
+}
+
+.button-datetime {
+    background-image: url('images/dateTime.png');
+}
+
+.button-tafsir {
+    background-image: url('images/tafsir.png');
+}

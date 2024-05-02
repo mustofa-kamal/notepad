@@ -53,7 +53,7 @@
                 quill.removeFormat(range.index, range.length); // Removes formatting from the selected range
             }
         }
-        function applyNumberedList() {
+        function makeList() {
             let range = quill.getSelection();
             if (range) {
                 let format = quill.getFormat(range);
