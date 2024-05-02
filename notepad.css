@@ -268,6 +268,18 @@ body {
     cursor: pointer;
 }
 
+.tafsir-button {
+    background-image: url('images/tafsir.png'); /* Update with the correct path */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 34px; /* Adjust size as needed */
+    height: 34px; /* Adjust size as needed */
+    cursor: pointer;
+}
+
+
 
 
 
