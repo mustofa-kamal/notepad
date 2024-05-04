@@ -98,6 +98,7 @@
       try {
         const json = JSON.parse(input);
         editor.set(json);
+        editor.expandAll();
         document.getElementById('validity').textContent = "Valid JSON";
       } catch (e) {
         document.getElementById('validity').textContent = "Invalid JSON: " + e.message;
@@ -109,6 +110,7 @@
     try {
       const json = editor.get();
       editor.set(json);
+      editor.expandAll();
       document.getElementById('validity').textContent = "JSON formatted successfully";
     } catch (e) {
       document.getElementById('validity').textContent = "Invalid JSON - Cannot format";
@@ -120,6 +122,7 @@
       const json = editor.get();
       const compactJson = JSON.stringify(json);
       editor.set(JSON.parse(compactJson));
+      editor.expandAll();
       document.getElementById('validity').textContent = "Whitespace removed - JSON valid";
     } catch (e) {
       document.getElementById('validity').textContent = "Invalid JSON - Cannot remove whitespace";
@@ -149,6 +152,7 @@
     document.getElementById('rightDiv').style.flex = '1';
     document.querySelector('.restoreButton').style.display = 'none';
     document.querySelector('.expandButton').style.display = 'block';
+    editor.expandAll(); // Ensure JSON is fully expanded upon restoration
   }
 </script>
 </body>
