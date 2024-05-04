@@ -1,13 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soheles tools page</title>
+<meta charset="UTF-8">
+<title>Interactive JSON Viewer and Formatter</title>
+<link href="https://cdn.jsdelivr.net/npm/jsoneditor/dist/jsoneditor.min.css" rel="stylesheet" type="text/css">
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  .container {
+    display: flex;
+    height: 100%;
+  }
+  #leftDiv, #rightDiv {
+    flex: 1;
+    overflow: auto;
+    padding: 10px;
+  }
+  #leftDiv {
+    background: #f0f0f0;
+  }
+  #rightDiv {
+    background: #fff;
+    position: relative;
+  }
+  textarea {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  .button, .expandButton, .restoreButton, .copyButton {
+    position: fixed;
+    z-index: 10;
+  }
+  .expandButton, .copyButton {
+    position: absolute;
+    bottom: 10px;
+  }
+  .expandButton {
+    left: 10px;
+  }
+  .copyButton {
+    left: 80px;
+  }
+  .restoreButton {
+    display: none;
+    bottom: 10px;
+    right: 10px;
+  }
+  .validity {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+  }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Index.html file</h1>
-    </header>
+<div class="button">
+  <button onclick="formatJSON()">Format JSON</button>
+  <button onclick="removeWhitespace()">Remove Whitespace</button>
+</div>
+<div class="container">
+  <div id="leftDiv">
+    <textarea id="jsonInput" placeholder="Paste JSON here..." oninput="tryParseJSON()"></textarea>
+  </div>
+  <div id="rightDiv">
+    <button class="expandButton" onclick="expandViewer()">Expand</button>
+    <button class="copyButton" onclick="copyJSON()">Copy</button>
+  </div>
+</div>
+<button class="restoreButton" onclick="restoreLayout()">Restore</button>
+<div class="validity" id="validity"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/jsoneditor/dist/jsoneditor.min.js"></script>
+<script>
+  let editor;
+  window.onload = function() {
+    const container = document.getElementById('rightDiv');
+    const options = {
+      mode: 'tree',
+      onError: function(err) {
+        document.getElementById('validity').textContent = 'JSON invalid: ' + err.toString();
+      }
+    };
+    editor = new JSONEditor(container, options);
+    editor.set({});
+  };
+
+  function tryParseJSON() {
+    const input = document.getElementById('jsonInput').value;
+    if (input.trim() === '') {
+      editor.set({});
+      document.getElementById('validity').textContent = "Input cleared - JSON viewer cleared";
+    } else {
+      try {
+        const json = JSON.parse(input);
+        editor.set(json);
+        document.getElementById('validity').textContent = "Valid JSON";
+      } catch (e) {
+        document.getElementById('validity').textContent = "Invalid JSON: " + e.message;
+      }
+    }
+  }
+
+  function formatJSON() {
+    try {
+      const json = editor.get();
+      editor.set(json);
+      document.getElementById('validity').textContent = "JSON formatted successfully";
+    } catch (e) {
+      document.getElementById('validity').textContent = "Invalid JSON - Cannot format";
+    }
+  }
+
+  function removeWhitespace() {
+    try {
+      const json = editor.get();
+      const compactJson = JSON.stringify(json);
+      editor.set(JSON.parse(compactJson));
+      document.getElementById('validity').textContent = "Whitespace removed - JSON valid";
+    } catch (e) {
+      document.getElementById('validity').textContent = "Invalid JSON - Cannot remove whitespace";
+    }
+  }
+
+  function copyJSON() {
+    try {
+      const json = editor.get();
+      const formattedJson = JSON.stringify(json, null, 2); // Ensure it's formatted
+      navigator.clipboard.writeText(formattedJson);
+      document.getElementById('validity').textContent = "JSON copied to clipboard!";
+    } catch (e) {
+      document.getElementById('validity').textContent = "Failed to copy JSON";
+    }
+  }
+
+  function expandViewer() {
+    document.getElementById('leftDiv').style.display = 'none';
+    document.getElementById('rightDiv').style.flex = '1 1 100%';
+    document.querySelector('.restoreButton').style.display = 'block';
+    document.querySelector('.expandButton').style.display = 'none';
+  }
+
+  function restoreLayout() {
+    document.getElementById('leftDiv').style.display = 'flex';
+    document.getElementById('rightDiv').style.flex = '1';
+    document.querySelector('.restoreButton').style.display = 'none';
+    document.querySelector('.expandButton').style.display = 'block';
+  }
+</script>
 </body>
 </html>
