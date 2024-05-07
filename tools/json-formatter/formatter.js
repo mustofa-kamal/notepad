@@ -4,6 +4,7 @@ let editor;
     const options = {
       mode: 'tree',
       onError: function(err) {
+        document.getElementById('validity').className='error';
         document.getElementById('validity').textContent = 'JSON invalid: ' + err.toString();
       }
     };
@@ -52,39 +53,52 @@ let editor;
     const input = document.getElementById('jsonInput').value.trim();
     if (input === '') {
       editor.set({});
+      document.getElementById('validity').className='valid';
       document.getElementById('validity').textContent = "Input cleared - JSON viewer cleared";
     } else {
       try {
         const json = JSON.parse(input);
         editor.set(json);
-        editor.expandAll();
+        document.getElementById('validity').className='valid';
         document.getElementById('validity').textContent = "Valid JSON";
       } catch (e) {
         editor.set({}); // Clear the editor if JSON is invalid
+        document.getElementById('validity').className='error';
         document.getElementById('validity').textContent = "Invalid JSON: " + e.message;
+        
       }
     }
   }
 
   function formatJSON() {
-    try {
-      const json = editor.get();
-      editor.set(json);
-      editor.expandAll();
-      document.getElementById('validity').textContent = "JSON formatted successfully";
-    } catch (e) {
-      document.getElementById('validity').textContent = "Invalid JSON - Cannot format";
-    }
+    editor.setMode("code");
+    tryParseJSON();
   }
+
+  function expandTree() {
+    editor.setMode("tree");
+    tryParseJSON();
+    editor.expandAll();
+  }
+
+  function collapseTree() {
+    editor.setMode("tree");
+    tryParseJSON();
+  }
+
+
+
 
   function removeWhitespace() {
     try {
-      const json = editor.get();
-      const compactJson = JSON.stringify(json);
-      editor.set(JSON.parse(compactJson));
-      editor.expandAll();
+      editor.setMode("code");
+      const input = document.getElementById('jsonInput').value.trim();
+      const json = JSON.parse(input);
+      editor.updateText(JSON.stringify(json)); 
+      document.getElementById('validity').className='valid';
       document.getElementById('validity').textContent = "Whitespace removed - JSON valid";
     } catch (e) {
+      document.getElementById('validity').className='error';
       document.getElementById('validity').textContent = "Invalid JSON - Cannot remove whitespace";
     }
   }
@@ -107,8 +121,11 @@ let editor;
       const json = editor.get();
       const formattedJson = JSON.stringify(json, null, 2); // Ensure it's formatted
       navigator.clipboard.writeText(formattedJson);
+      document.getElementById('validity').className='valid';
       document.getElementById('validity').textContent = "JSON copied to clipboard!";
     } catch (e) {
+      document.getElementById('validity').className='error';
       document.getElementById('validity').textContent = "Failed to copy JSON";
     }
   }
+  

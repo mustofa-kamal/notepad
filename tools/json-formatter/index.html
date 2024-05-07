@@ -28,7 +28,7 @@
     margin: 0 10px; /* Space between buttons */
   }
   #leftDiv, #rightDiv {
-    height: 100%;
+    height: 95%;
     overflow: auto;
     padding: 10px;
   }
@@ -53,23 +53,36 @@
     height: 100%;
     box-sizing: border-box;
   }
-  .validity {
+  .valid {
     position: fixed;
-    bottom: 10px;
+    bottom: 4px;
     right: 10px;
+    color: green;
+    font-size: small; 
   }
+
+  .error {
+    position: fixed;
+    bottom: 4px;
+    right: 10px;
+    color: red;
+    font-size: small; 
+  }
+
 </style>
 </head>
 <body>
 <div id="menuBar">
+  <button class="menuButton" onclick="expandTree()">Expand Tree</button>
+  <button class="menuButton" onclick="collapseTree()">Collapse Tree</button>
   <button class="menuButton" onclick="formatJSON()">Format JSON</button>
   <button class="menuButton" onclick="removeWhitespace()">Remove Whitespace</button>
-  <button class="menuButton" onclick="expandViewer()">Expand</button>
+  <button class="menuButton" onclick="expandViewer()">Full Window</button>
   <button class="menuButton" onclick="copyJSON()">Copy</button>
 </div>
 <div class="container">
   <div id="leftDiv">
-    <textarea id="jsonInput" placeholder="Paste JSON here..." oninput="tryParseJSON()"></textarea>
+    <textarea id="jsonInput" placeholder="Paste JSON here..." oninput="expandTree()"></textarea>
   </div>
   <div id="dragBar"></div>
   <div id="rightDiv">
