@@ -1,4 +1,4 @@
-let editor;
+  let editor;
   window.onload = function() {
     const container = document.getElementById('rightDiv');
     const options = {
@@ -11,7 +11,14 @@ let editor;
     editor = new JSONEditor(container, options);
     editor.set({});
     initResizable();
+
+    removeAllButton();
+
   };
+
+  
+
+  
 
   function initResizable() {
     const leftDiv = document.getElementById('leftDiv');
@@ -73,17 +80,20 @@ let editor;
   function formatJSON() {
     editor.setMode("code");
     tryParseJSON();
+    removeAllButton()
   }
 
   function expandTree() {
     editor.setMode("tree");
     tryParseJSON();
     editor.expandAll();
+    removeAllButton();
   }
 
   function collapseTree() {
     editor.setMode("tree");
     tryParseJSON();
+    removeAllButton();
   }
 
 
@@ -97,10 +107,12 @@ let editor;
       editor.updateText(JSON.stringify(json)); 
       document.getElementById('validity').className='valid';
       document.getElementById('validity').textContent = "Whitespace removed - JSON valid";
+      removeAllButton();
     } catch (e) {
       document.getElementById('validity').className='error';
       document.getElementById('validity').textContent = "Invalid JSON - Cannot remove whitespace";
     }
+  
   }
 
   function expandViewer() {
@@ -127,5 +139,19 @@ let editor;
       document.getElementById('validity').className='error';
       document.getElementById('validity').textContent = "Failed to copy JSON";
     }
+  }
+
+  function removeAllButton(){
+    const menu = document.querySelector('.jsoneditor-menu');
+
+        // Find all button elements within this div
+        const buttons = menu.querySelectorAll('button');
+
+        // Remove each button found
+        buttons.forEach(button => {
+          if (button.className !== 'jsoneditor-refresh' && button.className !== 'jsoneditor-next' && button.className !== 'jsoneditor-previous') {
+            button.remove();
+          }
+        });
   }
   
