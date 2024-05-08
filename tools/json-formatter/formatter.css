@@ -81,14 +81,21 @@ body, html {
   .jsoneditor-redo,
   .jsoneditor-repair,
   .jsoneditor-contextmenu-button,
-  .jsoneditor-dragarea {
+  .jsoneditor-dragarea,
+  .jsoneditor-format,
+  .jsoneditor-compact,
+  .jsoneditor-expand-all,
+  .jsoneditor-collapse-all {
     display: none !important; 
 }
 
-#jsonInput{
+#jsonInput{ 
   border: 1px solid #ddd;
 }
 #jsonInput:focus {
   outline: none; /* Removes the default focus outline */
- 
+}
+
+#rightDiv:focus{
+  outline: none;
 }
