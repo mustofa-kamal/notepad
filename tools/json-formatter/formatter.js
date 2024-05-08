@@ -11,9 +11,6 @@
     editor = new JSONEditor(container, options);
     editor.set({});
     initResizable();
-
-    //removeButtons();
-
   };
 
   
@@ -80,20 +77,17 @@
   function formatJSON() {
     editor.setMode("code");
     tryParseJSON();
-    //removeButtons()
   }
 
   function expandTree() {
     editor.setMode("tree");
     tryParseJSON();
     editor.expandAll();
-    //removeButtons();
   }
 
   function collapseTree() {
     editor.setMode("tree");
     tryParseJSON();
-    //removeButtons();
   }
 
 
@@ -101,17 +95,15 @@
 
   function removeWhitespace() {
     try {
-      editor.setMode("code");
+      editor.setMode("text");
       const input = document.getElementById('jsonInput').value.trim();
       const json = JSON.parse(input);
       editor.updateText(JSON.stringify(json)); 
       document.getElementById('validity').className='valid';
       document.getElementById('validity').textContent = "Whitespace removed - JSON valid";
-      //removeButtons();
     } catch (e) {
       document.getElementById('validity').className='error';
       document.getElementById('validity').textContent = "Invalid JSON - Cannot remove whitespace";
-      //removeButtons();
     }
     
   
@@ -133,7 +125,9 @@
   function copyJSON() {
     try {
       const json = editor.get();
-      const formattedJson = JSON.stringify(json, null, 2); // Ensure it's formatted
+      const space = editor.getMode() === 'text' ? 0 : 2;
+      const formattedJson = JSON.stringify(json, null, space);
+      document.getElementById("copyJSON").focus();
       navigator.clipboard.writeText(formattedJson);
       document.getElementById('validity').className='valid';
       document.getElementById('validity').textContent = "JSON copied to clipboard!";
@@ -143,17 +137,4 @@
     }
   }
 
-  function removeButtons(){
-    const menu = document.querySelector('.jsoneditor-menu');
-
-        // Find all button elements within this div
-        const buttons = menu.querySelectorAll('button');
-
-        // Remove each button found
-        buttons.forEach(button => {
-          if (button.className !== 'jsoneditor-refresh' && button.className !== 'jsoneditor-next' && button.className !== 'jsoneditor-previous') {
-            button.remove();
-          }
-        });
-  }
   
