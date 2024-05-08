@@ -2,8 +2,8 @@
   window.onload = function() {
     const container = document.getElementById('rightDiv');
     const options = {
-      mode: 'tree',
-      onError: function(err) {
+      mode: 'tree', 
+     onError: function(err) {
         document.getElementById('validity').className='error';
         document.getElementById('validity').textContent = 'JSON invalid: ' + err.toString();
       }
@@ -12,7 +12,7 @@
     editor.set({});
     initResizable();
 
-    removeAllButton();
+    //removeButtons();
 
   };
 
@@ -80,20 +80,20 @@
   function formatJSON() {
     editor.setMode("code");
     tryParseJSON();
-    removeAllButton()
+    //removeButtons()
   }
 
   function expandTree() {
     editor.setMode("tree");
     tryParseJSON();
     editor.expandAll();
-    removeAllButton();
+    //removeButtons();
   }
 
   function collapseTree() {
     editor.setMode("tree");
     tryParseJSON();
-    removeAllButton();
+    //removeButtons();
   }
 
 
@@ -107,11 +107,13 @@
       editor.updateText(JSON.stringify(json)); 
       document.getElementById('validity').className='valid';
       document.getElementById('validity').textContent = "Whitespace removed - JSON valid";
-      removeAllButton();
+      //removeButtons();
     } catch (e) {
       document.getElementById('validity').className='error';
       document.getElementById('validity').textContent = "Invalid JSON - Cannot remove whitespace";
+      //removeButtons();
     }
+    
   
   }
 
@@ -141,7 +143,7 @@
     }
   }
 
-  function removeAllButton(){
+  function removeButtons(){
     const menu = document.querySelector('.jsoneditor-menu');
 
         // Find all button elements within this div

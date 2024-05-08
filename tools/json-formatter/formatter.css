@@ -1,0 +1,86 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Prevents scrolling */
+  }
+  .container {
+    display: flex;
+    height: calc(100% - 40px); /* Adjust height to account for menu */
+    overflow: hidden;
+  }
+  #menuBar {
+    background-color: #ccc;
+    width: 100%;
+    height: 40px; /* Height of the menu bar */
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+  }
+  .menuButton {
+    margin: 0 10px; /* Space between buttons */
+  }
+  #leftDiv, #rightDiv {
+    height: 95%;
+    overflow: auto;
+    padding: 10px;
+  }
+  #leftDiv {
+    background: #f0f0f0;
+    width: 50%;
+    flex-shrink: 0;
+    min-width: 100px;
+  }
+  #rightDiv {
+    background: #fff;
+    flex-grow: 1;
+    position: relative;
+  }
+  #dragBar {
+    background-color: #666;
+    cursor: ew-resize;
+    width: 5px;
+  }
+  textarea {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  .valid {
+    position: fixed;
+    bottom: 4px;
+    right: 10px;
+    color: green;
+    font-size: small; 
+  }
+
+  .error {
+    position: fixed;
+    bottom: 4px;
+    right: 10px;
+    color: red;
+    font-size: small; 
+  }
+
+  .jsoneditor{
+    border: 1px solid #eeeeee;
+  }
+
+  .jsoneditor-menu{
+    background-color: #dddddd;
+    border-bottom: 1px solid #cccccc;
+  }
+
+  .jsoneditor-results{
+    color: #666;
+  }
+
+  .jsoneditor-sort,
+  .jsoneditor-transform,
+  .jsoneditor-undo,
+  .jsoneditor-redo,
+  .jsoneditor-repair,
+  .jsoneditor-contextmenu-button,
+  .jsoneditor-dragarea {
+    display: none !important; 
+}
