@@ -109,16 +109,21 @@
   
   }
 
-  function fullWindow() {
+  function toggleWindow() {
     // Function to toggle full width for rightDiv or restore
+    var button = document.getElementById("toggleButton");
     const leftDiv = document.getElementById('leftDiv');
     const rightDiv = document.getElementById('rightDiv');
     if (leftDiv.style.display === 'none') {
       leftDiv.style.display = 'flex';
       rightDiv.style.width = '50%';
+      button.style.backgroundImage = "url('../../images/size-up.png')";
+      button.title="Maximize";
     } else {
       leftDiv.style.display = 'none';
       rightDiv.style.width = '100%';
+      button.style.backgroundImage = "url('../../images/size-down.png')";
+      button.title="Restore";
     }
   }
 
