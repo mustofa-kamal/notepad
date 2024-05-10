@@ -7,13 +7,23 @@
 <link href="formatter.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<div id="menuBar">
-  <button class="menuButton" id="expandTree" onclick="expandTree()">Expand Tree</button>
-  <button class="menuButton" id="collapseTree" onclick="collapseTree()">Collapse Tree</button>
-  <button class="menuButton" id="formatJSON" onclick="formatJSON()">Format JSON</button>
-  <button class="menuButton" id="removeWhitespace" onclick="removeWhitespace()">Remove Whitespace</button>
-  <button class="menuButton" id="expandViewer" onclick="expandViewer()">Full Window</button>
-  <button class="menuButton" id="copyJSON" onclick="copyJSON()">Copy</button>
+<div id="menu">
+  <button class="button-base button-expandtree" title="Expand Tree" onclick="expandTree()"></button>
+
+  <button class="button-base button-collapsetree" title="Collapse Tree" onclick="collapseTree()"></button>
+
+  <button class="button-base button-formatjson" id="formatJSON" onclick="formatJSON()"></button>
+
+  <button class="button-base button-removewhitespace" id="removeWhitespace" onclick="removeWhitespace()"></button>
+
+  <button class="button-base button-fullwindow" title="Full Window" onclick="fullWindow()"></button>
+
+  <button class="button-base button-copyjson" id="copyJSON" onclick="copyJSON()"></button>
+
+  <button class="button-base button-tafsir" title="Scientific Tafsir of the Quran"
+            onclick="window.location.href = 'https://www.alqurantafsir.com/'"></button>
+
+
 </div>
 <div class="container">
   <div id="leftDiv">

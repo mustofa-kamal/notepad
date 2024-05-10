@@ -9,19 +9,17 @@ body, html {
     height: calc(100% - 40px); /* Adjust height to account for menu */
     overflow: hidden;
   }
-  #menuBar {
-    background-color: #ccc;
-    width: 100%;
-    height: 40px; /* Height of the menu bar */
-    display: flex;
-    align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
-  }
-  .menuButton {
-    margin: 0 10px; /* Space between buttons */
-  }
+  #menu {
+    padding: 10px;
+    background: #efefef;
+    text-align: center;
+    border: 1px solid #CCC;
+}
+
+
+
   #leftDiv, #rightDiv {
-    height: 95%;
+    height: 93%;
     overflow: auto;
     padding: 10px;
   }
@@ -67,8 +65,12 @@ body, html {
   }
 
   .jsoneditor-menu{
-    background-color: #dddddd;
+    background-color: #efefef;
     border-bottom: 1px solid #cccccc;
+  }
+
+  .jsoneditor-navigation-bar {
+    background-color: #ffffff;
   }
 
   .jsoneditor-results{
@@ -99,3 +101,75 @@ body, html {
 #rightDiv:focus{
   outline: none;
 }
+
+
+
+
+
+/* Base class for all buttons */
+.button-base {
+
+  padding: 6px 40px;
+  margin: 0 2px;
+  font-size: 16px;
+  vertical-align: middle;
+  
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  width: 34px;
+  /* Adjust size as needed */
+  height: 34px;
+  /* Adjust size as needed */
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  /* Smooth transition for opacity change */
+}
+
+/* Hover effect for all buttons */
+.button-base:hover {
+  opacity: 0.5;
+}
+
+/* Specific classes for different background ../../images */
+.button-tafsir {
+  background-image: url('../../images/tafsir.png');
+}
+
+.button-expandtree {
+  background-image: url('../../images/expand-tree.png');
+}
+
+.button-collapsetree {
+  background-image: url('../../images/collapse-tree.png');
+}
+
+.button-formatjson {
+  background-image: url('../../images/blue.png');
+}
+
+.button-removewhitespace {
+  background-image: url('../../images/clear-format.png');
+}
+
+.button-fullwindow {
+  background-image: url('../../images/size-up.png');
+}
+
+.button-collapsewindow {
+  background-image: url('../../images/size-down.png');
+}
+
+.button-copyjson {
+  background-image: url('../../images/pdf.png');
+}
+
+.button-tafsir {
+  background-image: url('../../images/tafsir.png');
+}
+
+
+
+
+

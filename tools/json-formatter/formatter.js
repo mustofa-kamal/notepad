@@ -109,7 +109,7 @@
   
   }
 
-  function expandViewer() {
+  function fullWindow() {
     // Function to toggle full width for rightDiv or restore
     const leftDiv = document.getElementById('leftDiv');
     const rightDiv = document.getElementById('rightDiv');
