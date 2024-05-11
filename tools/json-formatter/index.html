@@ -1,73 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <!-- Title of the website -->
-<title>Online JSON Tools - Formatter, Validator, and Tree Viewer</title>
+  <title>Online JSON Tools - Formatter, Validator, and Tree Viewer</title>
 
-<!-- Meta description that explains what the website does -->
-<meta name="description" content="Optimize your JSON tasks with our comprehensive JSON tools. Format, validate, create tree views, search, remove whitespace, and copy content to clipboard, all in one place. Ideal for developers and data analysts.">
+  <!-- Meta description that explains what the website does -->
+  <meta name="description"
+    content="Optimize your JSON tasks with our comprehensive JSON tools. Format, validate, create tree views, search, remove whitespace, and copy content to clipboard, all in one place. Ideal for developers and data analysts.">
 
-<!-- Meta keywords for search optimization -->
-<meta name="keywords" content="JSON formatter, JSON validator, JSON tree view, JSON search, remove JSON whitespace, JSON tools, online JSON utility, copy JSON to clipboard">
+  <!-- Meta keywords for search optimization -->
+  <meta name="keywords"
+    content="JSON formatter, JSON validator, JSON tree view, JSON search, remove JSON whitespace, JSON tools, online JSON utility, copy JSON to clipboard">
 
-<!-- Responsive design meta tag -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Responsive design meta tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Character set specification -->
-<meta charset="UTF-8">
+  <!-- Character set specification -->
+  <meta charset="UTF-8">
 
-<!-- Author of the website -->
-<meta name="author" content="Your Company or Your Name"> <!-- Customize as needed -->
+  <!-- Author of the website -->
+  <meta name="author" content="Your Company or Your Name"> <!-- Customize as needed -->
 
-<!-- Control the behavior of search engine crawling and indexing -->
-<meta name="robots" content="index, follow">
+  <!-- Control the behavior of search engine crawling and indexing -->
+  <meta name="robots" content="index, follow">
 
-<!-- Open Graph tags for social media sharing -->
-<meta property="og:title" content="Online JSON Tools - Formatter, Validator, and Tree Viewer"/>
-<meta property="og:description" content="Optimize your JSON tasks with our comprehensive JSON tools. Format, validate, create tree views, search, remove whitespace, and copy content to clipboard, all in one place. Ideal for developers and data analysts."/>
-<meta property="og:image" content="https://www.soheles.com/tools/json-formatter/json-formatter.jpg"/> 
-<meta property="og:url" content="https://www.soheles.com/tools/json-formatter/"/>
-<meta property="og:type" content="website"/>
+  <!-- Open Graph tags for social media sharing -->
+  <meta property="og:title" content="Online JSON Tools - Formatter, Validator, and Tree Viewer" />
+  <meta property="og:description"
+    content="Optimize your JSON tasks with our comprehensive JSON tools. Format, validate, create tree views, search, remove whitespace, and copy content to clipboard, all in one place. Ideal for developers and data analysts." />
+  <meta property="og:image" content="https://www.soheles.com/tools/json-formatter/json-formatter.jpg" />
+  <meta property="og:url" content="https://www.soheles.com/tools/json-formatter/" />
+  <meta property="og:type" content="website" />
 
-<!-- Twitter Card data for Twitter sharing -->
-<meta name="twitter:title" content="Online JSON Tools - Formatter, Validator, and Tree Viewer">
-<meta name="twitter:description" content="Optimize your JSON tasks with our comprehensive JSON tools. Format, validate, create tree views, search, remove whitespace, and copy content to clipboard, all in one place. Ideal for developers and data analysts.">
-<meta name="twitter:image" content="https://www.soheles.com/tools/json-formatter/json-formatter.jpg"> 
-<meta name="twitter:card" content="summary_large_image">
-<link href="https://cdn.jsdelivr.net/npm/jsoneditor/dist/jsoneditor.min.css" rel="stylesheet" type="text/css"/>
-<link href="formatter.css" rel="stylesheet" type="text/css"/>
+  <!-- Twitter Card data for Twitter sharing -->
+  <meta name="twitter:title" content="Online JSON Tools - Formatter, Validator, and Tree Viewer">
+  <meta name="twitter:description"
+    content="Optimize your JSON tasks with our comprehensive JSON tools. Format, validate, create tree views, search, remove whitespace, and copy content to clipboard, all in one place. Ideal for developers and data analysts.">
+  <meta name="twitter:image" content="https://www.soheles.com/tools/json-formatter/json-formatter.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link href="https://cdn.jsdelivr.net/npm/jsoneditor/dist/jsoneditor.min.css" rel="stylesheet" type="text/css" />
+  <link href="formatter.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
-<div id="menu">
-  <button class="button-base button-expandtree" title="Expand Tree" onclick="expandTree()"></button>
+  <div id="menu">
+    <button class="button-base button-expandtree" title="Expand Tree" onclick="expandTree()"></button>
 
-  <button class="button-base button-collapsetree" title="Collapse Tree" onclick="collapseTree()"></button>
+    <button class="button-base button-collapsetree" title="Collapse Tree" onclick="collapseTree()"></button>
 
-  <button class="button-base button-formatjson" title="Format JSON" id="formatJSON" onclick="formatJSON()"></button>
+    <button class="button-base button-formatjson" title="Format JSON" id="formatJSON" onclick="formatJSON()"></button>
 
-  <button class="button-base button-removewhitespace" title="Remove Whitespace" id="removeWhitespace" onclick="removeWhitespace()"></button>
+    <button class="button-base button-removewhitespace" title="Remove Whitespace" id="removeWhitespace"
+      onclick="removeWhitespace()"></button>
 
-  <button class="button-base button-fullwindow" title="Maximize" id="toggleButton" onclick="toggleWindow()"></button>
+    <button class="button-base button-fullwindow" title="Maximize" id="toggleButton" onclick="toggleWindow()"></button>
 
-  <button class="button-base button-copyjson" id="copyJSON" title="Copy Json" onclick="copyJSON()"></button>
+    <button class="button-base button-copyjson" id="copyJSON" title="Copy Json" onclick="copyJSON()"></button>
 
-  <button class="button-base button-tafsir" title="Scientific Tafsir of the Quran"
-            onclick="window.location.href = 'https://www.alqurantafsir.com/'"></button>
+    <button class="button-base button-tafsir" title="Scientific Tafsir of the Quran"
+      onclick="window.location.href = 'https://www.alqurantafsir.com/'"></button>
 
-
-</div>
-<div class="container">
-  <div id="leftDiv">
-    <textarea id="jsonInput" placeholder="Paste JSON here..." oninput="expandTree()"></textarea>
   </div>
-  <div id="dragBar"></div>
-  <div id="rightDiv">
+  <div class="container">
+    <div id="leftDiv">
+      <textarea id="jsonInput" placeholder="Paste JSON here..." oninput="expandTree()"></textarea>
+    </div>
+    <div id="dragBar"></div>
+    <div id="rightDiv">
+    </div>
   </div>
-</div>
-<div class="validity" id="validity"></div>
+  <div class="validity" id="validity"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/jsoneditor/dist/jsoneditor.min.js"></script>
-<script src="formatter.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsoneditor/dist/jsoneditor.min.js"></script>
+  <script src="formatter.js"></script>
 </body>
+
 </html>
