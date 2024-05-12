@@ -49,19 +49,15 @@
 
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QYD7705FDB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-QYD7705FDB');
-</script>
-
-
 <body>
     <div id="menu">
+
+        <div id="tabs">
+            <button id="addTab">+</button>
+        </div>
+        
+
+
         <button class="button-base button-datetime" title="Insert Date and Time" onclick="insertDateTime()"></button>
         <button class="button-base button-undo" title="Undo" onclick="undo()"></button>
         <button class="button-base button-redo" title="Redo" onclick="redo()"></button>
@@ -83,8 +79,14 @@
         <button class="button-base button-tafsir" title="Scientific Tafsir of the Quran"
             onclick="window.location.href = 'https://www.alqurantafsir.com/'"></button>
 
+
+          
+
     </div>
-    <div id="editor"></div>
+    
+
+    <div id="editor" class="tab-content">Content for Tab 1</div>
+
     <!-- Include the Quill library -->
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <!-- Include the external JavaScript file -->
