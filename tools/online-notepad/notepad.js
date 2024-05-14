@@ -197,6 +197,8 @@ function copyTextAndOpenMeta() {
             // Fallback for desktop browsers
             window.open('https://www.facebook.com/', '_blank');
         }
+
+
     }, function(err) {
         alert('Failed to copy text: ' + err);
     });
@@ -204,9 +206,19 @@ function copyTextAndOpenMeta() {
 
 function shareOnFacebook() {
     var url = "https://www.soheles.com/tools/online-notepad/"; // The URL you want to share
-    var facebookUrl = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url);
+    var mobileFacebookUrl = "fb://facewebmodal/f?href=" + encodeURIComponent(url);
+    var desktopFacebookUrl = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url);
+
+    // Check if the user is on a mobile device
+    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    // Use the appropriate URL based on the device
+    var facebookUrl = isMobile ? mobileFacebookUrl : desktopFacebookUrl;
+
+    // Open the URL
     window.open(facebookUrl, "Facebook Share", "width=600, height=400");
 }
+
 
 
 
