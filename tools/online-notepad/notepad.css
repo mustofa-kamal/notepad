@@ -173,3 +173,11 @@ body {
 .button-tafsir {
     background-image: url('../../images/tafsir.png');
 }
+
+.button-sendemail {
+    background-image: url('../../images/send-email.png');
+}
+
+.button-shareon-meta {
+    background-image: url('../../images/share-on-meta.png');
+}

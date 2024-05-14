@@ -170,6 +170,34 @@ function insertDateTime() {
     }
 }
 
+function sendToEmail() {
+    var text = quill.getText();  // Gets plain text; use `quill.root.innerHTML` for HTML
+    var subject = encodeURIComponent("Subject for your Email");
+    var body = encodeURIComponent(text);
+    var url = `mailto:someone@example.com?subject=${subject}&body=${body}`;
+    window.open(url, '_blank');
+  }
+
+
+
+function copyTextAndOpenMeta() {
+    var text = quill.getText(); // Get plain text from Quill editor
+    navigator.clipboard.writeText(text).then(function() {
+        alert('Text copied to clipboard. You can now paste it into Facebook or any other application.');
+        window.open('https://www.facebook.com/', '_blank');
+    }, function(err) {
+        alert('Failed to copy text: ' + err);
+    });
+}
+
+
+
+
+
+
+
+
+
 
 
 
