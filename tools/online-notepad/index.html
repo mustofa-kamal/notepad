@@ -85,6 +85,13 @@
         <button class="button-base button-shareon-meta" title="Share on Facebook" onclick="copyTextAndOpenMeta()"></button>
         <button class="button-base button-tafsir" title="Scientific Tafsir of the Quran"
             onclick="window.location.href = 'https://www.alqurantafsir.com/'"></button>
+
+        <!-- Your share button code -->
+        <div class="fb-share-button" 
+            data-href="https://www.soheles.com/tools/online-notepad/" 
+            data-layout="box_count"
+            data-size="small">
+        </div>
  </div>
     <div id="editor"></div>
     <!-- Include the Quill library -->
@@ -92,6 +99,15 @@
     <!-- Include the external JavaScript file -->
     <script src="notepad.js"></script>
 
+    <!-- Load Facebook SDK for JavaScript -->
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
 </body>
 
 </html>
