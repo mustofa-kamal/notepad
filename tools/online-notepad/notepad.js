@@ -183,7 +183,7 @@ function sendToEmail() {
 function copyTextAndOpenMeta() {
     var text = quill.getText(); // Get plain text from Quill editor
     navigator.clipboard.writeText(text).then(function() {
-        alert('Text copied to clipboard. You can now paste it into Facebook or any other application.');
+        alert('Text copied to clipboard. You can now paste it into Messanger or Facebook.');
 
 
        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -197,13 +197,15 @@ function copyTextAndOpenMeta() {
             // Fallback for desktop browsers
             window.open('https://www.facebook.com/', '_blank');
         }
-
-
-
-
     }, function(err) {
         alert('Failed to copy text: ' + err);
     });
+}
+
+function shareOnFacebook() {
+    var url = "https://www.soheles.com/tools/online-notepad/"; // The URL you want to share
+    var facebookUrl = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url);
+    window.open(facebookUrl, "Facebook Share", "width=600, height=400");
 }
 
 

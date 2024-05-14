@@ -182,9 +182,11 @@ body {
     background-image: url('../../images/share-on-meta.png');
 }
 
-.fb_iframe_widget{
-    float: right;
+.button-shareon-facebook {
+    background-image: url('../../images/facebook-share.png');
 }
+
+
 
 
 
