@@ -184,7 +184,23 @@ function copyTextAndOpenMeta() {
     var text = quill.getText(); // Get plain text from Quill editor
     navigator.clipboard.writeText(text).then(function() {
         alert('Text copied to clipboard. You can now paste it into Facebook or any other application.');
-        window.open('https://www.facebook.com/', '_blank');
+
+
+       var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        // Checks if the user is on a mobile device
+        if (/android/i.test(userAgent)) {
+            window.open('fb://facewebmodal/f?href=https://www.facebook.com/', '_blank');
+        } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            window.open('fb://profile/', '_blank');
+        } else {
+            // Fallback for desktop browsers
+            window.open('https://www.facebook.com/', '_blank');
+        }
+
+
+
+
     }, function(err) {
         alert('Failed to copy text: ' + err);
     });
