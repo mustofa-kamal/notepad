@@ -88,7 +88,8 @@ function italicText() {
     }
 }
 
-function changeColor(colr) {
+function changeColor() {
+    let colr = getRandomColor();
     let range = quill.getSelection();
     if (range) {
         let format = quill.getFormat(range);
@@ -171,14 +172,18 @@ function insertDateTime() {
 }
 
 function sendToEmail() {
-    var text = quill.getText();  // Gets plain text; use `quill.root.innerHTML` for HTML
+    var text = quill.getText();  // Gets plain text; use `quill.root.innerHTML` for HTML content
     var subject = encodeURIComponent("Subject for your Email");
     var body = encodeURIComponent(text);
-    var url = `mailto:someone@example.com?subject=${subject}&body=${body}`;
-    window.open(url, '_blank');
-  }
+    var mailtoLink = `mailto:someone@gmail.com?subject=${subject}&body=${body}`;
 
-
+    // Check if the length of the mailto link is too long
+    if (mailtoLink.length > 2000) {
+        alert('The content is too long to be sent via mailto link. Please shorten the content to under 2000 characters.');
+    } else {
+        window.location.href = mailtoLink;
+    }
+}
 
 function copyTextAndOpenMeta() {
     var text = quill.getText(); // Get plain text from Quill editor
@@ -218,6 +223,39 @@ function shareOnFacebook() {
     // Open the URL
     window.open(facebookUrl, "Facebook Share", "width=600, height=400");
 }
+
+function getRandomColor() {
+    // Generate random color components
+    const getRandomComponent = () => Math.floor(Math.random() * 256);
+    let r, g, b, color;
+    
+    do {
+        r = getRandomComponent();
+        g = getRandomComponent();
+        b = getRandomComponent();
+        color = `rgb(${r}, ${g}, ${b})`;
+    } while (color === 'rgb(0, 0, 0)' || color === 'rgb(255, 255, 255)');
+    
+    return color;
+}
+
+function changeBackgroundColor() {
+    let range = quill.getSelection();
+    if (range) {
+        let color = getRandomColor();
+        let format = quill.getFormat(range);
+        if (format.background === color) {
+            quill.format('background', false);
+        } else {
+            quill.format('background', color);
+        }
+    }
+}
+
+
+
+
+
 
 
 
